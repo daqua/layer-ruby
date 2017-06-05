@@ -10,11 +10,15 @@ describe Layer::Announcement do
       'sent_at' => '2015-06-19T11:00:00Z',
       'id' => 'layer:///announcements/announcement_id',
       'recipients' => [
-        '1',
-        '2'
+        'layer:///identities/1',
+        'layer:///identities/2'
       ],
       'sender' => {
-        'name'=>'test'
+        'id' => 'layer:///identities/1234',
+        'url' => 'https://api.layer.com/identities/1234',
+        'user_id' => '1234',
+        'display_name' => 'One Two Three Four',
+        'avatar_url' => 'https://mycompany.co/images/1234.png'
       },
       'parts' => [
         {

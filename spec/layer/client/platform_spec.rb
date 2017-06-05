@@ -73,7 +73,7 @@ describe Layer::Client::Platform do
 
         it 'should set the Accept header' do
           expect(RestClient::Request).to have_received(:execute)
-            .with(hash_including(headers: hash_including('Accept' => 'application/vnd.layer+json; version=1.1')))
+            .with(hash_including(headers: hash_including('Accept' => 'application/vnd.layer+json; version=2.0')))
         end
 
         it 'should set the Content-Type header' do
