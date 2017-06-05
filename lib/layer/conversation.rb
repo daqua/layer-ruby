@@ -36,7 +36,6 @@ module Layer
     # @raise [Layer::Exceptions::Exception] a subclass of Layer::Exceptions::Exception describing the error
     def self.delete(id, options = {}, client = self.client)
       id = Layer::Client.normalize_id(id)
-      options = { mode: :my_devices }.merge(options)
       client.delete("#{url}/#{id}", {}, { params: options })
     end
 
@@ -48,7 +47,7 @@ module Layer
     # @param client [Layer::Client] the client to use to make this request
     # @raise [Layer::Exceptions::Exception] a subclass of Layer::Exceptions::Exception describing the error
     def self.destroy(id, client = self.client)
-      delete(id, { mode: :all_participants }, client)
+      delete(id, {}, client)
     end
 
     # Returns the conversations messages
@@ -114,7 +113,7 @@ module Layer
     #
     # @raise [Layer::Exceptions::Exception] a subclass of Layer::Exceptions::Exception describing the error
     def destroy
-      delete(mode: :all_participants)
+      delete({})
     end
 
     # Deletes the conversation, removing it from the user's devices by default
@@ -122,7 +121,6 @@ module Layer
     # @param options [Hash] the options for the delete request (REST API only: `leave: true/false`, `mode: all_participants/my_devices`)
     # @raise [Layer::Exceptions::Exception] a subclass of Layer::Exceptions::Exception describing the error
     def delete(options = {})
-      options = { mode: :my_devices }.merge(options)
       client.delete(url, {}, { params: options })
     end
 
