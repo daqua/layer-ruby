@@ -6,7 +6,23 @@ describe Layer::Conversation do
   let(:response) do
     {
       'url' => 'https://api.layer.com/apps/default_app_id/conversations/conversation_id',
-      'participants' => ['1', '2'],
+      'messages_url' => 'https://api.layer.com/apps/default_app_id/conversations/conversation_id/messages',
+      'participants' => [
+        {
+          'id' => 'layer:///identities/1',
+          'url' => 'https://api.layer.com/identities/1',
+          'user_id' => '1',
+          'display_name' => 'One',
+          'avatar_url' => 'https://mycompany.co/images/1.png'
+        },
+        {
+          'id' => 'layer:///identities/2',
+          'url' => 'https://api.layer.com/identities/2',
+          'user_id' => '2',
+          'display_name' => 'Two',
+          'avatar_url' => 'https://mycompany.co/images/2.png'
+        }
+      ],
       'id' => 'layer:///conversations/conversation_id',
       'distinct' => false,
       'metadata' => { 'foo' => 'bar' },

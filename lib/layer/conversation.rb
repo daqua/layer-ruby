@@ -116,6 +116,10 @@ module Layer
       delete({})
     end
 
+    def participants=(participants)
+      super(participants.map{|p| "layer:///identities/#{p}"})
+    end
+
     # Deletes the conversation, removing it from the user's devices by default
     #
     # @param options [Hash] the options for the delete request (REST API only: `leave: true/false`, `mode: all_participants/my_devices`)

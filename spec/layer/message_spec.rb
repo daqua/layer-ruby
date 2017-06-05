@@ -13,11 +13,15 @@ describe Layer::Message do
       "sent_at" => "2015-06-19T11:00:00Z",
       "id" => "layer:///messages/message_id",
       "recipient_status" => {
-        "1" => "sent",
-        "2" => "sent"
+        "layer:///identities/1" => "sent",
+        "layer:///identities/2" => "read"
       },
       "sender" => {
-        "name"=>"test"
+        'id' => 'layer:///identities/2',
+        'url' => 'https://api.layer.com/identities/2',
+        'user_id' => '2',
+        'display_name' => 'Two',
+        'avatar_url' => 'https://mycompany.co/images/2.png'
       },
       "parts" => [
         {
